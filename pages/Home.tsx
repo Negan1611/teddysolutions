@@ -186,40 +186,7 @@ const Home: React.FC = () => {
         </section>
       )}
 
-      {/* 5. PROJECTS SECTION */}
-      <section className="py-24 bg-gray-50 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-            <div className="max-w-2xl">
-              <span className="text-blue-600 font-bold uppercase tracking-widest text-sm block mb-4">Danh mục dự án</span>
-              <h2 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight">Dự Án Đã Triển Khai</h2>
-              <p className="text-gray-500 mt-4 text-lg">Khám phá cách chúng tôi giúp các thương hiệu bứt phá doanh thu qua các sản phẩm website độc bản.</p>
-            </div>
-            <Link to={AppRoute.PROJECTS} className="group flex items-center text-gray-900 font-black text-sm uppercase tracking-widest bg-white px-8 py-4 rounded-xl shadow-sm border border-gray-100 hover:bg-blue-600 hover:text-white transition-all">
-              Tất cả dự án
-              <svg className="h-5 w-5 ml-3 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {PROJECTS.map((project) => (
-              <div key={project.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-gray-100">
-                <div className="relative overflow-hidden h-64">
-                  <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-blue-600/0 group-hover:bg-blue-600/20 transition-all duration-300"></div>
-                </div>
-                <div className="p-8">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 mb-2 block">{project.category}</span>
-                  <h3 className="text-xl font-black mb-3 text-gray-900 group-hover:text-blue-600 transition-colors">{project.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed font-medium">{project.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 6. TESTIMONIALS SECTION */}
       <Testimonials testimonials={TESTIMONIALS} />
@@ -245,58 +212,47 @@ const Home: React.FC = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
-              { step: '01', title: 'Phân tích & Tư vấn', desc: 'Nghiên cứu thị trường và đối thủ cạnh tranh để ra chiến lược.' },
-              { step: '02', title: 'UI/UX Design', desc: 'Thiết kế giao diện hiện đại, độc bản và cá nhân hóa thương hiệu.' },
-              { step: '03', title: 'Development', desc: 'Lập trình hệ thống mượt mà, tối ưu tốc độ và bảo mật tuyệt đối.' },
-              { step: '04', title: 'Go-Live & Support', desc: 'Bàn giao, vận hành thực tế và bảo trì hệ thống trọn đời.' },
+              {
+                step: '01',
+                title: 'Phân tích & Tư vấn',
+                desc: 'Nghiên cứu thị trường và đối thủ cạnh tranh để ra chiến lược.',
+                icon: <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              },
+              {
+                step: '02',
+                title: 'UI/UX Design',
+                desc: 'Thiết kế giao diện hiện đại, độc bản và cá nhân hóa thương hiệu.',
+                icon: <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" /></svg>
+              },
+              {
+                step: '03',
+                title: 'Development',
+                desc: 'Lập trình hệ thống mượt mà, tối ưu tốc độ và bảo mật tuyệt đối.',
+                icon: <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
+              },
+              {
+                step: '04',
+                title: 'Go-Live & Support',
+                desc: 'Bàn giao, vận hành thực tế và bảo trì hệ thống trọn đời.',
+                icon: <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" /></svg>
+              },
             ].map((item, idx) => (
-              <div key={idx} className="relative p-8 bg-white rounded-2xl group overflow-hidden shadow-sm border border-gray-100">
-                <div className="text-6xl font-black text-gray-50 absolute -right-2 -top-2 transition-colors group-hover:text-blue-50">{item.step}</div>
-                <h4 className="text-xl font-black mb-4 relative z-10">{item.title}</h4>
-                <p className="text-sm text-gray-500 relative z-10 leading-relaxed font-medium">{item.desc}</p>
+              <div key={idx} className="relative p-8 bg-white rounded-2xl group overflow-hidden shadow-sm border border-gray-100 hover:shadow-xl transition-all">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-blue-600 mb-6 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    {item.icon}
+                  </div>
+                  <div className="text-sm font-black text-blue-600 mb-2 uppercase tracking-widest">Bước {item.step}</div>
+                  <h4 className="text-xl font-black mb-4 text-gray-900">{item.title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium">{item.desc}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 9. NEWS SECTION */}
-      <section className="py-24 bg-white px-4 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex justify-between items-end mb-16">
-            <div>
-              <h2 className="text-3xl md:text-5xl font-black text-gray-900 uppercase">Digital Insights</h2>
-              <p className="text-gray-500 mt-4 font-medium italic">Cập nhật xu hướng công nghệ & marketing mới nhất.</p>
-            </div>
-            <Link to={AppRoute.NEWS} className="hidden md:flex items-center text-blue-600 font-black hover:gap-2 transition-all">
-              Tất cả bài viết
-              <svg className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {NEWS.map((post) => (
-              <div key={post.id} className="group bg-gray-50 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-gray-100">
-                <div className="overflow-hidden h-64">
-                  <img src={post.imageUrl} alt={post.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                </div>
-                <div className="p-8">
-                  <div className="flex items-center text-xs text-gray-400 font-bold mb-4 uppercase tracking-widest">
-                    <span className="px-3 py-1 bg-blue-50 text-blue-600 rounded-md mr-4">Blog</span>
-                    {post.date}
-                  </div>
-                  <h3 className="text-2xl font-black mt-2 mb-4 leading-tight group-hover:text-blue-600 transition-colors">{post.title}</h3>
-                  <p className="text-gray-500 mb-6 leading-relaxed font-medium">{post.excerpt}</p>
-                  <Link to={AppRoute.NEWS} className="text-gray-900 font-black text-sm uppercase tracking-wider border-b-2 border-gray-900 hover:text-blue-600 hover:border-blue-600 transition-all">
-                    Xem bài viết
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* 10. FINAL CTA */}
       <section className="py-24 bg-white px-4">
