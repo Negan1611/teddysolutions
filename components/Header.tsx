@@ -148,10 +148,7 @@ const Header: React.FC = () => {
             <div className="pt-10">
               <p className="text-gray-400 font-bold mb-4 uppercase text-xs">Liên hệ qua Zalo</p>
               <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="text-3xl font-black text-blue-600 underline inline-flex items-center gap-3">
-                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="10" fill="white" />
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
-                </svg>
+                <img src="/zalo-icon.png" alt="Zalo" className="w-10 h-10" />
                 {PHONE_NUMBER}
               </a>
             </div>
