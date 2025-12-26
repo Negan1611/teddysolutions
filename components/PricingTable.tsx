@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PHONE_NUMBER } from '../constants';
+import { PHONE_NUMBER, ZALO_LINK } from '../constants';
 
 const PricingTable: React.FC = () => {
   const plans = [
@@ -68,8 +68,8 @@ const PricingTable: React.FC = () => {
     <div className="py-4 md:py-12">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-10 items-stretch max-w-7xl mx-auto">
         {plans.map((plan, idx) => (
-          <div 
-            key={idx} 
+          <div
+            key={idx}
             className={`flex flex-col h-full rounded-[2rem] border p-6 sm:p-8 md:p-10 transition-all duration-500 hover:translate-y-[-8px] ${plan.colorClass} relative overflow-hidden`}
           >
             {plan.highlight && (
@@ -77,7 +77,7 @@ const PricingTable: React.FC = () => {
                 Phổ biến nhất
               </div>
             )}
-            
+
             <div className="mb-6 md:mb-8">
               <h3 className={`text-xl md:text-2xl font-black mb-2 tracking-tighter ${plan.headerColor}`}>{plan.name}</h3>
               <p className="text-xs md:text-sm font-bold mb-3 opacity-80 leading-snug">{plan.desc}</p>
@@ -102,13 +102,16 @@ const PricingTable: React.FC = () => {
             </div>
 
             <a
-              href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
-              className="w-full py-4 md:py-5 rounded-2xl text-center font-black text-white text-xs md:text-sm uppercase tracking-widest transition-all shadow-xl hover:shadow-red-500/30 flex items-center justify-center gap-2 md:gap-3 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 hover:scale-[1.02] active:scale-95"
+              href={ZALO_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4 md:py-5 rounded-2xl text-center font-black text-white text-xs md:text-sm uppercase tracking-widest transition-all shadow-xl hover:shadow-blue-500/30 flex items-center justify-center gap-2 md:gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:scale-[1.02] active:scale-95"
             >
-              <svg className="h-4 w-4 md:h-5 md:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              <svg className="h-4 w-4 md:h-5 md:w-5" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
               </svg>
-              Tư vấn: {PHONE_NUMBER}
+              Liên hệ Zalo
             </a>
           </div>
         ))}

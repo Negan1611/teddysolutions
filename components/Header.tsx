@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AppRoute } from '../types';
-import { PHONE_NUMBER, SERVICES } from '../constants';
+import { PHONE_NUMBER, SERVICES, ZALO_LINK } from '../constants';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -37,21 +37,20 @@ const Header: React.FC = () => {
               TEDDY<span className="text-blue-600">Solutions</span>
             </Link>
           </div>
-          
+
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <div 
-                key={link.path} 
+              <div
+                key={link.path}
                 className="relative group"
                 onMouseEnter={() => link.hasDropdown && setIsDropdownOpen(true)}
                 onMouseLeave={() => link.hasDropdown && setIsDropdownOpen(false)}
               >
                 <Link
                   to={link.path}
-                  className={`text-[13px] font-black uppercase tracking-widest transition-all hover:text-blue-600 flex items-center gap-1 py-2 ${
-                    isActive(link.path) ? 'text-blue-600' : 'text-gray-600'
-                  }`}
+                  className={`text-[13px] font-black uppercase tracking-widest transition-all hover:text-blue-600 flex items-center gap-1 py-2 ${isActive(link.path) ? 'text-blue-600' : 'text-gray-600'
+                    }`}
                 >
                   {link.name}
                   {link.hasDropdown && (
@@ -72,9 +71,9 @@ const Header: React.FC = () => {
                           className="flex items-center gap-4 p-3 rounded-xl hover:bg-blue-50 transition-colors group/item"
                         >
                           <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 group-hover/item:bg-blue-600 group-hover/item:text-white transition-all">
-                             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                             </svg>
+                            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
                           </div>
                           <div>
                             <div className="text-[13px] font-black text-gray-900 leading-none mb-1">{s.title}</div>
@@ -87,11 +86,17 @@ const Header: React.FC = () => {
                 )}
               </div>
             ))}
-            <a 
-              href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`}
-              className="bg-gray-900 text-white px-6 py-3 rounded-xl text-sm font-black hover:bg-blue-600 transition-all shadow-lg"
+            <a
+              href={ZALO_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-black hover:bg-blue-700 transition-all shadow-lg inline-flex items-center gap-2"
             >
-              {PHONE_NUMBER}
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" fill="white" />
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
+              </svg>
+              Zalo
             </a>
           </div>
 
@@ -122,9 +127,8 @@ const Header: React.FC = () => {
                 <Link
                   to={link.path}
                   onClick={() => !link.hasDropdown && setIsOpen(false)}
-                  className={`block text-2xl font-black uppercase tracking-tighter ${
-                    isActive(link.path) ? 'text-blue-600' : 'text-gray-900'
-                  }`}
+                  className={`block text-2xl font-black uppercase tracking-tighter ${isActive(link.path) ? 'text-blue-600' : 'text-gray-900'
+                    }`}
                 >
                   {link.name}
                 </Link>
@@ -145,8 +149,14 @@ const Header: React.FC = () => {
               </div>
             ))}
             <div className="pt-10">
-                <p className="text-gray-400 font-bold mb-4 uppercase text-xs">Hotline hỗ trợ 24/7</p>
-                <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="text-3xl font-black text-blue-600 underline">{PHONE_NUMBER}</a>
+              <p className="text-gray-400 font-bold mb-4 uppercase text-xs">Liên hệ qua Zalo</p>
+              <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="text-3xl font-black text-blue-600 underline inline-flex items-center gap-3">
+                <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="white" />
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
+                </svg>
+                {PHONE_NUMBER}
+              </a>
             </div>
           </div>
         </div>

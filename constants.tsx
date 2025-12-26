@@ -2,6 +2,7 @@
 import { Service, NewsPost, Project } from './types';
 
 export const PHONE_NUMBER = '0939 367 732';
+export const ZALO_LINK = 'https://zalo.me/0939367732';
 export const EMAIL = 'lockull258@gmail.com';
 export const ADDRESS = 'Thành phố Hồ Chí Minh, Việt Nam';
 

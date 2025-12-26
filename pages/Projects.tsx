@@ -16,11 +16,10 @@ const Projects: React.FC = () => {
         {/* Categories Filter (Visual only for now) */}
         <div className="flex flex-wrap justify-center gap-4 mb-16">
           {['Tất cả', 'Thiết kế Website', 'E-commerce', 'SEO', 'Landing Page'].map((cat, i) => (
-            <button 
-              key={i} 
-              className={`px-8 py-3 rounded-full font-black text-sm uppercase tracking-widest transition-all ${
-                i === 0 ? 'bg-blue-600 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-              }`}
+            <button
+              key={i}
+              className={`px-8 py-3 rounded-full font-black text-sm uppercase tracking-widest transition-all ${i === 0 ? 'bg-blue-600 text-white shadow-lg' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
             >
               {cat}
             </button>
@@ -31,13 +30,13 @@ const Projects: React.FC = () => {
           {PROJECTS.map((project) => (
             <div key={project.id} className="group bg-white rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100">
               <div className="relative h-80 overflow-hidden">
-                <img 
-                  src={project.imageUrl} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-10">
-                   <span className="text-white text-xs font-black uppercase tracking-[0.3em] border-l-2 border-blue-500 pl-4">Xem dự án</span>
+                  <span className="text-white text-xs font-black uppercase tracking-[0.3em] border-l-2 border-blue-500 pl-4">Xem dự án</span>
                 </div>
               </div>
               <div className="p-10">
@@ -71,11 +70,13 @@ const Projects: React.FC = () => {
           <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-2xl mx-auto relative z-10 font-medium">
             Liên hệ ngay để nhận giải pháp thiết kế website chuyên biệt, giúp nâng tầm thương hiệu và tăng trưởng doanh thu vượt bậc.
           </p>
-          <a 
-            href="tel:0939367732"
+          <a
+            href="https://zalo.me/0939367732"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-block px-12 py-5 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-red-500/30 text-lg relative z-10"
           >
-            Bắt đầu dự án của bạn
+            Liên hệ qua Zalo
           </a>
         </div>
       </div>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SERVICES, NEWS, PHONE_NUMBER, PROJECTS, TESTIMONIALS } from '../constants';
+import { SERVICES, NEWS, PHONE_NUMBER, PROJECTS, TESTIMONIALS, ZALO_LINK } from '../constants';
 import { AppRoute } from '../types';
 import PricingTable from '../components/PricingTable';
 import Testimonials from '../components/Testimonials';
@@ -313,10 +313,16 @@ const Home: React.FC = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
               <a
-                href={`tel:${PHONE_NUMBER.replace(/\s/g, '')} `}
-                className="px-12 py-5 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-red-500/20 text-lg"
+                href={ZALO_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-12 py-5 bg-gradient-to-r from-blue-600 to-blue-500 text-white rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-blue-500/20 text-lg inline-flex items-center justify-center gap-3"
               >
-                Gọi Tư Vấn Ngay: {PHONE_NUMBER}
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" fill="white" />
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
+                </svg>
+                Liên hệ qua Zalo
               </a>
               <Link
                 to={AppRoute.CONTACT}

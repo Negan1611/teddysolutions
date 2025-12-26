@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { SERVICES, PHONE_NUMBER } from '../constants';
+import { SERVICES, PHONE_NUMBER, ZALO_LINK } from '../constants';
 import { AppRoute } from '../types';
 import PricingTable from '../components/PricingTable';
 
@@ -34,38 +34,38 @@ const ServiceDetail: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="bg-white rounded-[2rem] p-6 md:p-12 shadow-sm border border-gray-100 mb-12">
               <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8 mb-12">
-                 <div className="w-20 h-20 md:w-24 md:h-24 bg-blue-50 rounded-3xl flex items-center justify-center text-blue-600 shrink-0">
-                    {/* Dynamic Icon Rendering */}
-                    {service.icon === 'web' ? (
-                      <div className="w-14 h-14 md:w-16 md:h-16 bg-yellow-400 rounded-full flex items-center justify-center">
-                        <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                        </svg>
-                      </div>
-                    ) : service.icon === 'google' ? (
-                      <svg className="w-12 h-12 md:w-14 md:h-14" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M371.7 34.6L143.6 477.4c-9.1 17.6-30.8 24.3-48.4 15.2-17.6-9.1-24.3-30.8-15.2-48.4L308.1 11.4c9.1-17.6 30.8-24.3 48.4-15.2 17.6 9.1 24.3 30.8 15.2 48.4z" fill="#FBBC04"/>
-                        <path d="M141.6 477.4L34.1 269.8c-9.1-17.6-2.4-39.3 15.2-48.4 17.6-9.1 39.3-2.4 48.4 15.2l107.5 207.6c9.1 17.6 2.4 39.3-15.2 48.4-17.6 9.1-39.3 2.4-48.4-15.2z" fill="#4285F4"/>
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-blue-50 rounded-3xl flex items-center justify-center text-blue-600 shrink-0">
+                  {/* Dynamic Icon Rendering */}
+                  {service.icon === 'web' ? (
+                    <div className="w-14 h-14 md:w-16 md:h-16 bg-yellow-400 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
                       </svg>
-                    ) : (
-                      <svg className="h-10 w-10 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    )}
-                  </div>
-                  <div>
-                    <h1 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-4 text-center md:text-left">
-                      {service.title}
-                    </h1>
-                    <div className="h-1.5 w-24 bg-blue-600 rounded-full mx-auto md:mx-0"></div>
-                  </div>
+                    </div>
+                  ) : service.icon === 'google' ? (
+                    <svg className="w-12 h-12 md:w-14 md:h-14" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M371.7 34.6L143.6 477.4c-9.1 17.6-30.8 24.3-48.4 15.2-17.6-9.1-24.3-30.8-15.2-48.4L308.1 11.4c9.1-17.6 30.8-24.3 48.4-15.2 17.6 9.1 24.3 30.8 15.2 48.4z" fill="#FBBC04" />
+                      <path d="M141.6 477.4L34.1 269.8c-9.1-17.6-2.4-39.3 15.2-48.4 17.6-9.1 39.3-2.4 48.4 15.2l107.5 207.6c9.1 17.6 2.4 39.3-15.2 48.4-17.6 9.1-39.3 2.4-48.4-15.2z" fill="#4285F4" />
+                    </svg>
+                  ) : (
+                    <svg className="h-10 w-10 md:h-12 md:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  )}
+                </div>
+                <div>
+                  <h1 className="text-3xl md:text-5xl font-black text-gray-900 leading-tight mb-4 text-center md:text-left">
+                    {service.title}
+                  </h1>
+                  <div className="h-1.5 w-24 bg-blue-600 rounded-full mx-auto md:mx-0"></div>
+                </div>
               </div>
 
               <div className="prose prose-blue max-w-none text-gray-600 leading-relaxed font-medium">
                 <p className="text-lg md:text-xl text-gray-900 font-bold mb-10 leading-snug">
                   {service.shortDescription}
                 </p>
-                
+
                 <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-6 flex items-center uppercase">
                   <span className="w-8 h-8 bg-gray-900 text-white text-xs rounded-full flex items-center justify-center mr-4 shrink-0">1</span>
                   Tổng quan giải pháp
@@ -125,8 +125,13 @@ const ServiceDetail: React.FC = () => {
                 </button>
               </form>
               <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-                <p className="text-xs text-gray-400 mb-4 font-bold uppercase tracking-widest">Hoặc gọi trực tiếp</p>
-                <a href={`tel:${PHONE_NUMBER.replace(/\s/g, '')}`} className="text-xl md:text-2xl font-black text-blue-500 hover:text-white transition-colors">{PHONE_NUMBER}</a>
+                <p className="text-xs text-gray-400 mb-4 font-bold uppercase tracking-widest">Hoặc liên hệ qua Zalo</p>
+                <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xl md:text-2xl font-black text-blue-500 hover:text-white transition-colors">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                  </svg>
+                  {PHONE_NUMBER}
+                </a>
               </div>
             </div>
 
@@ -135,8 +140,8 @@ const ServiceDetail: React.FC = () => {
               <h4 className="text-xl font-black mb-6 text-gray-900 uppercase">Dịch vụ khác</h4>
               <div className="space-y-4">
                 {SERVICES.filter(s => s.id !== service.id).map(s => (
-                  <Link 
-                    key={s.id} 
+                  <Link
+                    key={s.id}
                     to={`/dich-vu/${s.slug}`}
                     className="flex items-center p-4 bg-gray-50 rounded-xl font-bold hover:bg-blue-50 hover:text-blue-600 transition-all border border-transparent hover:border-blue-100 group"
                   >
