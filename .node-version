@@ -1,0 +1,10 @@
+# Cloudflare Pages Build Configuration
+
+# Node.js version
+NODE_VERSION=18
+
+# Build command
+npm run build
+
+# Output directory
+dist

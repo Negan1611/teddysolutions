@@ -1,0 +1,15 @@
+name = "teddy-solutions"
+compatibility_date = "2024-01-01"
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "teddy-solutions-db"
+database_id = "YOUR_DATABASE_ID_HERE" # Sẽ được tạo khi chạy: wrangler d1 create teddy-solutions-db
+
+# Pages configuration
+pages_build_output_dir = "dist"
+
+# Environment variables (optional)
+[vars]
+ENVIRONMENT = "production"
