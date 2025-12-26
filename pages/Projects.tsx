@@ -72,7 +72,7 @@ const Projects: React.FC = () => {
             Liên hệ ngay để nhận giải pháp thiết kế website chuyên biệt, giúp nâng tầm thương hiệu và tăng trưởng doanh thu vượt bậc.
           </p>
           <a 
-            href={`tel:${(0939367732).toString()}`}
+            href="tel:0939367732"
             className="inline-block px-12 py-5 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-red-500/30 text-lg relative z-10"
           >
             Bắt đầu dự án của bạn
