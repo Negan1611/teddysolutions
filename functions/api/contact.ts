@@ -1,6 +1,8 @@
 // Cloudflare Pages Function - Contact Form API
 // File: functions/api/contact.ts
 
+/// <reference types="@cloudflare/workers-types" />
+
 interface Env {
     DB: D1Database;
 }
