@@ -74,9 +74,10 @@ const Projects: React.FC = () => {
             href="https://zalo.me/0939367732"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-12 py-5 bg-gradient-to-r from-red-600 to-orange-500 text-white rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-red-500/30 text-lg relative z-10"
+            className="inline-flex items-center gap-3 px-8 py-4 bg-[#0068FF] text-white rounded-xl font-bold hover:bg-[#0052CC] transition-all shadow-lg text-base"
           >
-            Liên hệ qua Zalo
+            Liên hệ qua
+            <img src="/zalo-icon.png" alt="Zalo" className="w-8 h-8 bg-white rounded-full p-1" />
           </a>
         </div>
       </div>

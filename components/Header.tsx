@@ -90,10 +90,10 @@ const Header: React.FC = () => {
               href={ZALO_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-black hover:bg-blue-700 transition-all shadow-lg inline-flex items-center gap-2"
+              className="bg-[#0068FF] text-white px-5 py-2.5 rounded-lg text-sm font-bold hover:bg-[#0052CC] transition-all shadow-md inline-flex items-center gap-2"
             >
-              <img src="/zalo-icon.png" alt="Zalo" className="w-5 h-5" />
-              Zalo
+              Liên hệ qua
+              <img src="/zalo-icon.png" alt="Zalo" className="w-6 h-6 bg-white rounded-full p-0.5" />
             </a>
           </div>
 
