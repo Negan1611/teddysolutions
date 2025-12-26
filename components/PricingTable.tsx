@@ -105,10 +105,10 @@ const PricingTable: React.FC = () => {
               href={ZALO_LINK}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full py-4 md:py-5 rounded-2xl text-center font-black text-white text-xs md:text-sm uppercase tracking-widest transition-all shadow-xl hover:shadow-blue-500/30 flex items-center justify-center gap-2 md:gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:scale-[1.02] active:scale-95"
+              className="w-full py-3 md:py-4 rounded-lg text-center font-bold text-white text-sm md:text-base transition-all shadow-lg flex items-center justify-center gap-2 md:gap-3 bg-[#0068FF] hover:bg-[#0052CC]"
             >
-              <img src="/zalo-icon.png" alt="Zalo" className="h-5 w-5 md:h-6 md:w-6" />
-              Liên hệ Zalo
+              Liên hệ qua
+              <img src="/zalo-icon.png" alt="Zalo" className="h-6 w-6 md:h-7 md:w-7 bg-white rounded-full p-0.5" />
             </a>
           </div>
         ))}
