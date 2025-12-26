@@ -92,10 +92,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="bg-blue-600 text-white px-6 py-3 rounded-xl text-sm font-black hover:bg-blue-700 transition-all shadow-lg inline-flex items-center gap-2"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="white" />
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
-              </svg>
+              <img src="/zalo-icon.png" alt="Zalo" className="w-5 h-5" />
               Zalo
             </a>
           </div>

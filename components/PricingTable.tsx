@@ -107,10 +107,7 @@ const PricingTable: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full py-4 md:py-5 rounded-2xl text-center font-black text-white text-xs md:text-sm uppercase tracking-widest transition-all shadow-xl hover:shadow-blue-500/30 flex items-center justify-center gap-2 md:gap-3 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-400 hover:scale-[1.02] active:scale-95"
             >
-              <svg className="h-4 w-4 md:h-5 md:w-5" fill="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" fill="white" />
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="currentColor" />
-              </svg>
+              <img src="/zalo-icon.png" alt="Zalo" className="h-5 w-5 md:h-6 md:w-6" />
               Liên hệ Zalo
             </a>
           </div>

@@ -127,9 +127,7 @@ const ServiceDetail: React.FC = () => {
               <div className="mt-8 pt-8 border-t border-gray-800 text-center">
                 <p className="text-xs text-gray-400 mb-4 font-bold uppercase tracking-widest">Hoặc liên hệ qua Zalo</p>
                 <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xl md:text-2xl font-black text-blue-500 hover:text-white transition-colors">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  </svg>
+                  <img src="/zalo-icon.png" alt="Zalo" className="w-8 h-8" />
                   {PHONE_NUMBER}
                 </a>
               </div>
