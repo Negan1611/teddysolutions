@@ -316,10 +316,10 @@ const Home: React.FC = () => {
                 href={ZALO_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 bg-[#0068FF] text-white rounded-lg font-bold hover:bg-[#0052CC] transition-all shadow-lg text-base inline-flex items-center justify-center gap-3"
+                className="inline-flex items-center gap-3 px-10 py-4 bg-[#0068FF] text-white rounded-xl font-bold hover:bg-[#0052CC] transition-all shadow-xl text-lg"
               >
                 Liên hệ qua
-                <img src="/zalo-icon.png" alt="Zalo" className="w-8 h-8 bg-white rounded-full p-1" />
+                <img src="/zalo-icon.png" alt="Zalo" className="w-9 h-9 bg-white rounded-full p-1.5" />
               </a>
               <Link
                 to={AppRoute.CONTACT}

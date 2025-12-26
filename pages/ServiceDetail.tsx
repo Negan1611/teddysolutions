@@ -125,10 +125,10 @@ const ServiceDetail: React.FC = () => {
                 </button>
               </form>
               <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-                <p className="text-xs text-gray-400 mb-4 font-bold uppercase tracking-widest">Hoặc liên hệ qua Zalo</p>
-                <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xl md:text-2xl font-black text-blue-500 hover:text-white transition-colors">
-                  <img src="/zalo-icon.png" alt="Zalo" className="w-8 h-8" />
-                  {PHONE_NUMBER}
+                <p className="text-xs text-gray-400 mb-4 font-bold uppercase tracking-widest">Hoặc liên hệ qua</p>
+                <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-6 py-3 bg-[#0068FF] text-white rounded-xl font-bold text-base hover:bg-[#0052CC] transition-all">
+                  Liên hệ qua
+                  <img src="/zalo-icon.png" alt="Zalo" className="w-8 h-8 bg-white rounded-full p-1" />
                 </a>
               </div>
             </div>

@@ -147,9 +147,9 @@ const Header: React.FC = () => {
             ))}
             <div className="pt-10">
               <p className="text-gray-400 font-bold mb-4 uppercase text-xs">Liên hệ qua Zalo</p>
-              <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="text-3xl font-black text-blue-600 underline inline-flex items-center gap-3">
-                <img src="/zalo-icon.png" alt="Zalo" className="w-10 h-10" />
-                {PHONE_NUMBER}
+              <a href={ZALO_LINK} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 px-8 py-4 bg-[#0068FF] text-white rounded-xl font-bold text-xl hover:bg-[#0052CC] transition-all">
+                Liên hệ qua
+                <img src="/zalo-icon.png" alt="Zalo" className="w-10 h-10 bg-white rounded-full p-1.5" />
               </a>
             </div>
           </div>
