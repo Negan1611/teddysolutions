@@ -1,11 +1,80 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { PHONE_NUMBER, EMAIL, ADDRESS } from '../constants';
 
+interface FormData {
+  name: string;
+  phone: string;
+  email: string;
+  service: string;
+  message: string;
+}
+
 const Contact: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    phone: '',
+    email: '',
+    service: 'Thiết kế Website',
+    message: ''
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong vòng 24h.');
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message || 'Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong vòng 24h.'
+        });
+        // Reset form
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          service: 'Thiết kế Website',
+          message: ''
+        });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || 'Có lỗi xảy ra. Vui lòng thử lại.'
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Không thể kết nối. Vui lòng gọi trực tiếp: ' + PHONE_NUMBER
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -62,49 +131,96 @@ const Contact: React.FC = () => {
           {/* Form Side */}
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
             <h2 className="text-2xl font-bold mb-8">Gửi tin nhắn cho chúng tôi</h2>
+
+            {/* Success/Error Message */}
+            {submitStatus.type && (
+              <div className={`mb-6 p-4 rounded-xl ${submitStatus.type === 'success'
+                  ? 'bg-green-50 text-green-800 border border-green-200'
+                  : 'bg-red-50 text-red-800 border border-red-200'
+                }`}>
+                {submitStatus.message}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Họ và tên</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Họ và tên *</label>
                   <input
                     required
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     placeholder="Nguyễn Văn A"
+                    disabled={isSubmitting}
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Số điện thoại</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">Số điện thoại *</label>
                   <input
                     required
                     type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
                     className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
                     placeholder="09xx xxx xxx"
+                    disabled={isSubmitting}
                   />
                 </div>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Dịch vụ quan tâm</label>
-                <select className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Email (tùy chọn)</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  placeholder="email@example.com"
+                  disabled={isSubmitting}
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Dịch vụ quan tâm *</label>
+                <select
+                  name="service"
+                  value={formData.service}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  disabled={isSubmitting}
+                >
                   <option>Thiết kế Website</option>
                   <option>SEO Onpage/Offpage</option>
-                  <option>Quảng cáo Ads</option>
+                  <option>Quảng cáo Google</option>
+                  <option>Quảng cáo Facebook</option>
+                  <option>Thiết kế hình ảnh</option>
                   <option>Khác</option>
                 </select>
               </div>
               <div>
                 <label className="block text-sm font-semibold text-gray-700 mb-2">Nội dung yêu cầu</label>
                 <textarea
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   placeholder="Hãy cho chúng tôi biết nhu cầu của bạn..."
+                  disabled={isSubmitting}
                 ></textarea>
               </div>
               <button
                 type="submit"
-                className="w-full py-4 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-200"
+                disabled={isSubmitting}
+                className={`w-full py-4 rounded-xl font-bold transition-all shadow-lg ${isSubmitting
+                    ? 'bg-gray-400 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-700 shadow-blue-200'
+                  } text-white`}
               >
-                Gửi yêu cầu ngay
+                {isSubmitting ? 'Đang gửi...' : 'Gửi yêu cầu ngay'}
               </button>
             </form>
           </div>
